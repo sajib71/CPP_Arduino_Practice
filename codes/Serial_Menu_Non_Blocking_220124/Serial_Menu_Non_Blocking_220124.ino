@@ -34,22 +34,17 @@ void loop() {
     
     switch (currentState) {
       case IDLE:
-//        if (Serial.available() > 0) {
-//          input = Serial.readStringUntil('\n');
-//          if (input.equalsIgnoreCase("Menu")) {
+        if (Serial.available() > 0) {
+          input = Serial.readStringUntil('\n');
+          if (input.equalsIgnoreCase("Menu")) {
             Serial.print("Correct keyword. You have entered: ");
             Serial.println(input);
-//            Serial.println("1.WiFi Credentials");
-//            Serial.println("2.Broker Credentials");
-//            Serial.println("3.Device ID");
-//            Serial.println("4.Exit");
-//            Serial.print("Type 1, 2, 3 or 4 to select \n");
             currentState = MENU;
-//          } else {
-//            Serial.print("Wrong keyword. You have entered: ");
-//            Serial.println(input);
-//          }
-//        }
+          } else {
+            Serial.print("Wrong keyword. You have entered: ");
+            Serial.println(input);
+          }
+        }
         break;
 
       case MENU:
@@ -271,4 +266,3 @@ void ledBlinker() {
     digitalWrite(ledPin, ledState);
   }
 }
-
